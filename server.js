@@ -46,12 +46,26 @@ function filterByQuery(query, gamesArray) {
     return filteredResults;
 }
 
+function findById(id, gamesArray) {
+    const result = gamesArray.filter(games => games.id === id)[0];
+    return result;
+  }
+
 app.get('/api/games', (req, res) => {
     let results = games;
     if (req.query) {
         results = filterByQuery(req.query, results);
     }
     res.json(results);
+});
+
+app.get('/api/games/:id', (req, res) => {
+    const result = findById(req.params.id, games);
+    if (result) {
+        res.json(result);
+    } else {
+        res.send(404);
+    }
 });
 
 app.listen(PORT, () => {
