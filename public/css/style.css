@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+}
+
+.hero {
+    height: 20rem;
+    background-image: url('../img/4626804.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+}
