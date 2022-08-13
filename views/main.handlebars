@@ -20,15 +20,12 @@
               <li class="nav-item">
                 <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Login
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item text-white" >New User</a></li>
-                  <li><a class="dropdown-item text-white" >Returning User</a></li>
-                </ul>
-              </li>
+              {{if loggedIn}}
+              <li class="nav-item">Welcome back, {{user}}!</li>
+              <li class="nav-item" id="logout">Logout</li>
+              {{else}}
+              <li class="nav-item">Login</li>
+              {{/if}}
             </ul>
           </div>
         </div>
@@ -40,34 +37,7 @@
         </div>
     </hero>
     <main>
-        <div>
-            <div class="text-center">
-                <h2 class="border border-success">Newest Reviews</h2>
-                <p>text</p>
-            </div>
-        </div>
-        <div>
-            <div class="modal fade text-center w-50 bg-secondary" id="oldUser">
-                <div class="modal-content">
-                    <input class="" type="text" placeholder="Username">
-                    <input class="" type="text" placeholder="Password">
-                </div>
-                <div>
-                    <button class="btn btn-success">Login</button>
-                </div>
-            </div>
-            <div class="modal fade text-center w-50 bg-secondary" id="newUser">
-                <div class="modal-content">
-                    <input class="" type="text" placeholder="Email Address">
-                    <input class="" type="text" placeholder="Username">
-                    <input class="" type="text" placeholder="Password">
-                </div>
-                <div>
-                    <button class="btn btn-success">Start</button>
-                </div>
-            </div>    
-        </div>
-
+        {{body}}
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
