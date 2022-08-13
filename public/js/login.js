@@ -1,8 +1,8 @@
 async function login(event) {
     event.preventDefault();
 
-    const user = document.querySelector('').value.trim();
-    const password = document.querySelector('').value.trim();
+    const user = document.querySelector('#old-username').value.trim();
+    const password = document.querySelector('#old-password').value.trim();
 
     if (user && password) {
         const response = await fetch('/api/users', {
@@ -15,7 +15,7 @@ async function login(event) {
         });
 
         if (response.ok) {
-            // cool stuff goes here
+            document.location.replace('/')
         } else {
             alert(response.statusText)
         }
@@ -25,9 +25,9 @@ async function login(event) {
 async function signUp(event) {
     event.preventDefault();
 
-    const email = document.querySelector('').value.trim();
-    const user = document.querySelector('').value.trim();
-    const password = document.querySelector('').value.trim();
+    const email = document.querySelector('#new-email').value.trim();
+    const user = document.querySelector('#new-username').value.trim();
+    const password = document.querySelector('#new-password').value.trim();
 
     if (email && user && password) {
         const response = await fetch('/api/users', {
@@ -41,12 +41,13 @@ async function signUp(event) {
         });
 
         if (response.ok) {
-            console.log('Success')
+            console.log('Success');
+            document.location.reload();
         } else {
             alert(response.statusText)
         }
     }
 };
 
-document.querySelector('').addEventListener('submit', login);
-document.querySelector('').addEventListener('submit', signUp);
+document.querySelector('#return-login').addEventListener('submit', login);
+document.querySelector('#new-login').addEventListener('submit', signUp);
