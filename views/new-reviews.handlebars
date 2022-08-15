@@ -1,0 +1,14 @@
+<section>
+    {{if reviews.length}}
+    <div>
+        <h1>Newest Reviews</h1>
+    </div>
+    <div>
+        {{each review as |review|}}
+        <section>
+            {{> review-info review}}
+        </section>
+        {{/each}}
+    </div>
+    {{/if}}
+</section>

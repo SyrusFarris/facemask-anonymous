@@ -1,4 +1,5 @@
 {
+
   "name": "facemask-anonymous",
   "version": "1.0.0",
   "description": "facemask-anonymous is a review website project.",
@@ -20,5 +21,9 @@
   "homepage": "https://github.com/SyrusFarris/facemask-anonymous#readme",
   "dependencies": {
     "express": "^4.18.1"
+
+  "dependencies": {
+    "handlebars": "^4.7.7"
   }
+}
 }
