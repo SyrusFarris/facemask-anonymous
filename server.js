@@ -68,6 +68,25 @@ function createNewGame(body, gamesArray) {
     return game;
 }
 
+function validateGame(game) {
+    if (!game.name || typeof game.name !== 'string') {
+      return false;
+    }
+    if (!game.genre || typeof game.genre !== 'string') {
+      return false;
+    }
+    if (!game.year || typeof game.year !== 'string') {
+      return false;
+    }
+    if (!game.platform || typeof game.platform !== 'string') {
+        return false;
+      }
+    if (!game.rating || !Array.isArray(game.rating)) {
+      return false;
+    }
+    return true;
+  }
+
 app.get('/api/games', (req, res) => {
     let results = games;
     if (req.query) {
@@ -89,10 +108,13 @@ app.post('/api/games', (req,res) => {
     // set id based on what the next index of the array will be
     req.body.id = games.length.toString();
 
-    // add games to json file and animals array in this function
-    const game = createNewGame(req.body, games);
-
-    res.json(game);
+    // if any data in req.body is incorrect, send 400 error back
+    if (!validateGame(req.body)) {
+        res.status(400).send('The game is not properly formatted.');
+    } else {
+        const game = createNewGame(req.body, games);
+        res.json(game);
+    }
 });
 
 app.listen(PORT, () => {
