@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const { query } = require('express');
 const express = require('express');
 const PORT = process.env.PORT || 3001;
@@ -55,6 +57,17 @@ function findById(id, gamesArray) {
     return result;
   }
 
+function createNewGame(body, gamesArray) {
+    const game = body;
+    gamesArray.push(game);
+    fs.writeFileSync(
+        path.join(__dirname, './data/games.json'),
+        JSON.stringify({ games: gamesArray }, null, 2)
+    );
+
+    return game;
+}
+
 app.get('/api/games', (req, res) => {
     let results = games;
     if (req.query) {
@@ -73,9 +86,13 @@ app.get('/api/games/:id', (req, res) => {
 });
 
 app.post('/api/games', (req,res) => {
-    //req.body is where our incoming content will be
-    console.log(req.body);
-    res.json(req.body);
+    // set id based on what the next index of the array will be
+    req.body.id = games.length.toString();
+
+    // add games to json file and animals array in this function
+    const game = createNewGame(req.body, games);
+
+    res.json(game);
 });
 
 app.listen(PORT, () => {
