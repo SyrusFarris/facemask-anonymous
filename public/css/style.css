@@ -2,6 +2,10 @@ body {
     background-color: black;
 }
 
+main {
+    height: 100%;
+}
+
 .hero {
     height: 20rem;
     background-image: url('../img/4626804.webp');
@@ -16,4 +20,27 @@ body {
     display: flex;
     flex-direction: row;
     height: 3rem;
+}
+
+.row {
+    height: 24rem;
+    margin-top: 1rem;
+}
+
+.col {
+    justify-content: space-between;
+    height: 100%;
+}
+
+.log-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.log {
+    text-align: center;
+    margin: 1rem;
+    padding: .5rem;
+    border-radius: 10%;
 }

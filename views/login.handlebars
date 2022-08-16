@@ -1,20 +1,41 @@
-<div>
-    <div class="modal fade text-center w-50 bg-secondary" id="oldUser">
-        <div class="modal-content">
-            <input class="" id="old-username" type="text" placeholder="Username">
-            <input class="" id="old-password" type="text" placeholder="Password">
-        </div>
+<div class="row">
+    <div class="col d-flex flex-column" id="oldUser">
         <div>
+            <h2>Returning User</h2>
+        </div>
+        <div class="log-form">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                <input type="text" class="form-control old-user" id="exampleFormControlInput1" placeholder="CoolGuy123">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input type="text" class="form-control old-password" id="exampleFormControlInput1" placeholder="*******">
+            </div>
+        </div>
+        <div class="log-sub">
             <button class="btn btn-success" id="return-login">Login</button>
         </div>
     </div>
-    <div class="modal fade text-center w-50 bg-secondary" id="newUser">
-        <div class="modal-content">
-            <input class="" id="new-email" type="text" placeholder="Email Address">
-            <input class="" id="new-username" type="text" placeholder="Username">
-            <input class="" id="new-password" type="text" placeholder="Password">
-        </div>
+    <div class="col d-flex flex-column" id="newUser">
         <div>
+            <h2>New User</h2>
+        </div>
+        <div class="log-form">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="text" class="form-control new-email" id="exampleFormControlInput1" placeholder="aname@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                <input type="text" class="form-control new-user" id="exampleFormControlInput1" placeholder="Me110">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input type="text" class="form-control new-password" id="exampleFormControlInput1" placeholder="**********">
+            </div>
+        </div>
+        <div class="log-sub">
             <button class="btn btn-success" id="new-login">Sign Up</button>
         </div>
     </div>    

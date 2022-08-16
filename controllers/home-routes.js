@@ -1,15 +1,26 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-// const {} = require('../models');
+const { User, Review, Game } = require('../models');
 
 router.get('/', (req, res) => {
+    console.log('========================');
     Review.findAll({
-        attributes: [],
-        include: []
+        attributes: [
+            'id',
+            'review_url',
+            'title',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Game,
+                attributes: ['title']
+            }
+        ]
     })
     .then(dbReviewData => {
         const reviews = dbReviewData.map(review => review.get({ plain: true }))
-        res.render('homepage', {
+        res.render('new-reviews', {
             reviews
         })
     })
@@ -25,7 +36,7 @@ router.get('/login', (req, res) => {
         return;
     }
 
-    res.render('login')
+    res.render('login');
 });
 
 router.get('/review/:id', (req, res) => {
