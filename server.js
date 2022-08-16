@@ -4,6 +4,29 @@ const { query } = require('express');
 const express = require('express');
 const PORT = process.env.PORT || 3001;
 const app = express();
+const routes = require('./controllers');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({ helpers });
+const session = require('express-session');
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const sess = {
+    secret: 'shhh',
+    cookie: {},
+    resave: false,
+    saveUnitilized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use(session(sess));
+
+
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
