@@ -1,0 +1,37 @@
+{
+  "games": [
+    {
+      "id": "0",
+      "name": "Valorant",
+      "genre": "FPS",
+      "year": "2021",
+      "platform": "PC",
+      "rating": [
+        "8/10",
+        "too many flashes"
+      ]
+    },
+    {
+      "id": "1",
+      "name": "Elden Ring",
+      "genre": "RPG",
+      "year": "2022",
+      "platform": " PlayStaion, Xbox, PC",
+      "rating": [
+        "10/10",
+        "too hard for casuals"
+      ]
+    },
+    {
+      "name": "Apex Legends",
+      "genre": "FPS",
+      "year": "2019",
+      "platform": " PlayStaion, Xbox, PC",
+      "rating": [
+        "10/10",
+        "A little addicting"
+      ],
+      "id": "2"
+    }
+  ]
+}
