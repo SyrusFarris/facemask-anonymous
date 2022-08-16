@@ -1,0 +1,24 @@
+<section>
+    <div>
+        <h1>Welcome Back!</h1>
+        <button class="btn btn-success">Write a New Review</button>
+    </div>
+    <div>
+        {{if reviews.length}}
+        <div>
+            <h2>Your Reviews</h2>
+        </div>
+        <div>
+            {{each review as |review|}}
+            <div>
+                {{> review-info review}}
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div>
+            <h2>You haven't written any reviews yet.</h2>
+        </div>
+        {{/if}}
+    </div>
+</section>

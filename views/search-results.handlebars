@@ -1,0 +1,18 @@
+<section>
+    <div>
+        <h1>Results</h1>
+    </div>
+    {{if reviews.length}}
+    <div>
+        {{each review as |review|}}
+        <div>
+            {{>review-info review}}
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <div>
+        <h2>Sorry! No one has reviewed that game yet.</h2>
+    </div>
+    {{/if}}
+</section>
