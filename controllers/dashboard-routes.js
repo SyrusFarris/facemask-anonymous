@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         include: []
     })
     .then(dbReviewData => {
-        const reviews = dbReviewData.map(review => review.get({ plain: true });
+        const reviews = dbReviewData.map(review => review.get({ plain: true }));
         res.render('dashboard', { reviews, loggedIn: true })
     })
     .catch(err => {
