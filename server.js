@@ -53,7 +53,7 @@ function filterByQuery(query, gamesArray) {
             //Remember, it is initially a copy of the gamesArray,
             //For each rating being targeted by the filter, the filteredResults
             //array will then contain only entries  that contain the trait,
-            //so at the end we'll have an array of animals that have everyone
+            //so at the end we'll have an array of games that have everyone
             //of the traits when the .forEach() loop is finished.
             filteredResults = filteredResults.filter(
                 games => games.rating.indexOf(givenRate) !== -1
