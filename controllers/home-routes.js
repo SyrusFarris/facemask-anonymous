@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Review, Game } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     console.log('========================');
@@ -32,12 +33,16 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
+    // if (req.session.loggedIn) {
+    //     res.redirect('/');
+    //     return;
+    // }
 
     res.render('login');
+});
+
+router.get('/add', withAuth, (req, res) => {
+    res.render('add-review');
 });
 
 router.get('/review/:id', (req, res) => {

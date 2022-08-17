@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'review_url',
             'title',
+            'text',
             'created_at'
         ],
         order: [['created_at', 'DESC']],
@@ -63,7 +64,7 @@ router.get('/:id', (req, res) => {
 });
 
 // creates a review and sends it to the database
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Review.create({
         title: req.body.title,
         review_url: req.body.review_url,

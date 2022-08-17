@@ -1,7 +1,7 @@
-<section>
-    <div>
-        <h1>Welcome Back!</h1>
-        <button class="btn btn-success">Write a New Review</button>
+<section class="dash-main">
+    <div class="d-flex flex-row justify-content-between">
+        <h1 class="dash-welcome">Welcome Back!</h1>
+        <button class="btn btn-success"><a class="nav-link active text-white" aria-current="page" href="/add">Write a New Review</a></button>
     </div>
     <div>
         {{#if reviews.length}}
@@ -22,5 +22,5 @@
         {{/if}}
     </div>
 </section>
-<script src="/public/js/add-review.js"></script>
+
 <script src="/public/js/logout.js"></script>

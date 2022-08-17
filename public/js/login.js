@@ -6,7 +6,7 @@ async function login(event) {
 
     if (user && password) {
         const response = await fetch('/api/users/login', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({
                 user,
                 password
@@ -16,6 +16,7 @@ async function login(event) {
 
         if (response.ok) {
             document.location.replace('/dashboard/')
+            loggedIn: true;
         } else {
             alert(response.statusText)
         }
@@ -31,7 +32,7 @@ async function signUp(event) {
 
     if (email && user && password) {
         const response = await fetch('/api/users', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({
                 email,
                 user,
@@ -42,7 +43,8 @@ async function signUp(event) {
 
         if (response.ok) {
             console.log('Success');
-            document.location.reload();
+            loggedIn: true;
+            document.location.replace('/dashboard/');
         } else {
             alert(response.statusText)
         }

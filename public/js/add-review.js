@@ -1,23 +1,25 @@
 async function newReviewHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('').value;
-    const review_url = document.querySelector('').value;
+    const title = document.querySelector('#title').value;
+    const rating = document.querySelector('#rating').value;
+    const text = document.querySelector('#text').value;
 
     const response = await fetch('/api/reviews', {
         method: 'POST',
         body: JSON.stringify({
             title,
-            review_url
+            rating,
+            text
         }),
         headers: {'Content-Type': 'application/json'}
     });
 
     if (response.ok) {
-        document.location.replace('dashboard')
+        document.location.replace('/dashboard/')
     } else {
         alert(response.statusText)
     }
 };
 
-document.querySelector('').addEventListener('submit', newReviewHandler);
+document.querySelector('#new-review').addEventListener('submit', newReviewHandler);
