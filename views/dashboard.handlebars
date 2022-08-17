@@ -4,12 +4,12 @@
         <button class="btn btn-success">Write a New Review</button>
     </div>
     <div>
-        {{if reviews.length}}
+        {{#if reviews.length}}
         <div>
             <h2>Your Reviews</h2>
         </div>
         <div>
-            {{each review as |review|}}
+            {{#each review as |review|}}
             <div>
                 {{> review-info review}}
             </div>

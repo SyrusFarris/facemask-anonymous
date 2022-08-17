@@ -4,6 +4,7 @@ const { User, Review, Game } = require('../models');
 
 router.get('/', (req, res) => {
     console.log('========================');
+    // finds most recent reviews from the database to showcase them on the front page
     Review.findAll({
         attributes: [
             'id',
@@ -40,6 +41,7 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/review/:id', (req, res) => {
+    // finds a particular review when user clicks on it
     Review.findOne({
         where: {
             id: req.params.id
