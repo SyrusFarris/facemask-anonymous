@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.post('/login', withAuth, (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             username: req.body.username

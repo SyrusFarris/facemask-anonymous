@@ -16,7 +16,8 @@ Game.hasMany(Review, {
 });
 
 Review.belongsTo(Game, {
-    foreignKey: 'game_id'
+    foreignKey: 'game_id',
+    onDelete: 'SET NULL'
 });
 
 module.exports = { User, Review, Game }
