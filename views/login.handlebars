@@ -1,42 +1,44 @@
 <div class="row">
-    <div class="col d-flex flex-column" id="oldUser">
+    <form class="col d-flex flex-column" id="oldUser">
         <div>
             <h2>Returning User</h2>
         </div>
         <div class="log-form">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Username</label>
-                <input type="text" class="form-control old-user" id="exampleFormControlInput1" placeholder="CoolGuy123">
+                <input type="text" class="form-control"id="exampleFormControlInput1 old-user" placeholder="CoolGuy123">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input type="text" class="form-control old-password" id="exampleFormControlInput1" placeholder="*******">
+                <input type="text" class="form-control" id="exampleFormControlInput1 old-password" placeholder="*******">
             </div>
         </div>
         <div class="log-sub">
-            <button class="btn btn-success" id="return-login">Login</button>
+            <button type="submit" class="btn btn-success" id="return-login">Login</button>
         </div>
-    </div>
-    <div class="col d-flex flex-column" id="newUser">
+    </form>
+    <form class="col d-flex flex-column" id="newUser">
         <div>
             <h2>New User</h2>
         </div>
         <div class="log-form">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="text" class="form-control new-email" id="exampleFormControlInput1" placeholder="aname@example.com">
+                <input type="text" class="form-control" id="exampleFormControlInput1 new-email" placeholder="aname@example.com">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Username</label>
-                <input type="text" class="form-control new-user" id="exampleFormControlInput1" placeholder="Me110">
+                <input type="text" class="form-control" id="exampleFormControlInput1 new-user" placeholder="Me110">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input type="text" class="form-control new-password" id="exampleFormControlInput1" placeholder="**********">
+                <input type="text" class="form-control" id="exampleFormControlInput1 new-password" placeholder="**********">
             </div>
         </div>
         <div class="log-sub">
-            <button class="btn btn-success" id="new-login">Sign Up</button>
+            <button type="submit" class="btn btn-success" id="new-login">Sign Up</button>
         </div>
-    </div>    
+    </form>    
 </div>
+
+<script src="/js/login.js"></script>
