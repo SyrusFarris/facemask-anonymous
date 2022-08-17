@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 
 router.get('/', (req, res) => {
+    // finds all reviews for the user
     Review.findAll({
         where: {
             user_id: req.session.user_id

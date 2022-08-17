@@ -30,6 +30,14 @@ Review.init(
                 model: 'user',
                 key: 'id'
             }
+        },
+        game: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            references: {
+                model: 'game',
+                key: 'id'
+            }
         }
     },
     {

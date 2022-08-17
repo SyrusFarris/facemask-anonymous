@@ -2,9 +2,9 @@
     <div>
         <h1>Results</h1>
     </div>
-    {{if reviews.length}}
+    {{#if reviews.length}}
     <div>
-        {{each review as |review|}}
+        {{#each review as |review|}}
         <div>
             {{>review-info review}}
         </div>
