@@ -32,7 +32,7 @@ Review.init(
             }
         },
         game_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'game',

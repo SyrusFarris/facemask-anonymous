@@ -1,14 +1,16 @@
 async function login(event) {
     event.preventDefault();
 
-    const username = document.querySelector('#old-user').value.trim();
+    const user = document.querySelector('#old-user').value.trim();
     const password = document.querySelector('#old-password').value.trim();
 
-    if (username && password) {
-        const response = await fetch('/api/users', {
+    console.log(user, password);
+
+    if (user && password) {
+        const response = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({
-                username,
+                user,
                 password
             }),
             headers: {'Content-Type': 'application/json'}
@@ -20,22 +22,21 @@ async function login(event) {
             alert(response.statusText)
         }
     }
-    console.log(':(')
 };
 
 async function signUp(event) {
     event.preventDefault();
 
     const email = document.querySelector('#new-email').value.trim();
-    const username = document.querySelector('#new-user').value.trim();
+    const user = document.querySelector('#new-user').value.trim();
     const password = document.querySelector('#new-password').value.trim();
 
-    if (email && username && password) {
+    if (email && user && password) {
         const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({
                 email,
-                username,
+                user,
                 password
             }),
             headers: {'Content-Type': 'application/json'}
