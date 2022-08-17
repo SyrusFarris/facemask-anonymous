@@ -31,7 +31,7 @@ Review.init(
                 key: 'id'
             }
         },
-        game: {
+        game_id: {
             type: DataTypes.STRING,
             allowNull: false,
             references: {
