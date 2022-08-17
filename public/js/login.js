@@ -1,10 +1,8 @@
 async function login(event) {
     event.preventDefault();
 
-    const user = document.querySelector('#old-user').value.trim();
+    const user = document.querySelector('#old-username').value.trim();
     const password = document.querySelector('#old-password').value.trim();
-
-    console.log(user, password);
 
     if (user && password) {
         const response = await fetch('/api/users/login', {
@@ -28,7 +26,7 @@ async function signUp(event) {
     event.preventDefault();
 
     const email = document.querySelector('#new-email').value.trim();
-    const user = document.querySelector('#new-user').value.trim();
+    const user = document.querySelector('#new-username').value.trim();
     const password = document.querySelector('#new-password').value.trim();
 
     if (email && user && password) {

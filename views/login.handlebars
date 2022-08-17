@@ -1,34 +1,43 @@
 <div class="row">
-    <form id="return-login">
-        <div class="mb-3">
-            <label for="old-user" class="form-label">username</label>
-            <input type="text" class="form-control" id="old-user" aria-describedby="username">
-        </div>
-        <div class="mb-3">
-            <label for="old-password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="old-password">
+    <div class="col d-flex flex-column" id="oldUser">
+        <div>
+            <h2>Returning User</h2>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <form id="return-login">
+            <div class="mb-3">
+                <label for="old-username" class="form-label">username</label>
+                <input type="text" class="form-control" id="old-username" aria-describedby="username">
+            </div>
+            <div class="mb-3">
+                <label for="old-password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="old-password">
+            </div>
+            <button type="submit" id="return-login" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
-    <form id="new-login">
-        <div class="mb-3">
-            <label for="new-email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="new-email" aria-describedby="email">
+    <div class="col d-flex flex-column" id="newUser">
+        <div>
+            <h2>New User</h2>
         </div>
 
-        <div class="mb-3">
-            <label for="new-user" class="form-label">Username</label>
-            <input type="text" class="form-control" id="new-user" aria-describedby="username">
-        </div>
+        <form id="new-login">
+            <div class="mb-3">
+                <label for="new-email" class="form-label">email</label>
+                <input type="text" class="form-control" id="new-email" aria-describedby="email">
+            </div>
 
-        <div class="mb-3">
-            <label for="new-password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="new-password">
-        </div>
+            <div class="mb-3">
+                <label for="new-username" class="form-label">username</label>
+                <input type="text" class="form-control" id="new-username" aria-describedby="username">
+            </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
+            <div class="mb-3">
+                <label for="new-password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="new-password">
+            </div>
+            <button type="submit" id="new-login" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </div>
