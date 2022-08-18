@@ -17,20 +17,9 @@ Review.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        rating: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
         text: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        review_url: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                isUrl: true
-            }
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -38,6 +27,10 @@ Review.init(
                 model: 'user',
                 key: 'id'
             }
+        },
+        review_url: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         game_id: {
             type: DataTypes.INTEGER,

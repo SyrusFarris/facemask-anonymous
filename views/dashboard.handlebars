@@ -1,15 +1,15 @@
 <section class="dash-main">
     <div class="d-flex flex-row justify-content-between">
         <h1 class="dash-welcome">Welcome Back!</h1>
-        <button class="btn btn-success"><a class="nav-link active text-white" aria-current="page" href="/add">Write a New Review</a></button>
+        <button class="btn btn-success write-review"><a class="nav-link active text-white" aria-current="page" href="/add">Write a New Review</a></button>
     </div>
     <div>
         {{#if reviews.length}}
         <div>
-            <h2>Your Reviews</h2>
+            <h2 class="your-reviews">Your Reviews</h2>
         </div>
         <div>
-            {{#each review as |review|}}
+            {{#each reviews as |review|}}
             <div>
                 {{> review-info review}}
             </div>
@@ -23,4 +23,4 @@
     </div>
 </section>
 
-<script src="/public/js/logout.js"></script>
+<script src="/js/logout.js"></script>

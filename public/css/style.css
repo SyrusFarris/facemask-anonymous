@@ -53,7 +53,7 @@ nav {
 }
 
 .dash-welcome {
-    border-bottom: 2px #198754;
+    border-bottom: 2px solid #198754;
 }
 
 #new-review {
@@ -63,4 +63,32 @@ nav {
 
 .form-label {
     font-size: large;
+}
+
+.new-title {
+    text-align: center;
+    border-bottom: 3px solid #198754;
+}
+
+.new-reviews {
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.review-link {
+    font-size: x-large;
+}
+
+.review-credits {
+    color: #6c757d;
+    font-size: small;
+    font-style: italic;
+}
+
+.your-reviews {
+    margin-top: 5rem;
+}
+
+.write-review {
+    margin-right: 2rem;
 }

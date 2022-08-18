@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
+const shortid = require('shortid');
 const { Review, User, Game } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -8,10 +9,11 @@ router.get('/', (req, res) => {
     Review.findAll({
         attributes: [
             'id',
-            'review_url',
             'title',
             'text',
-            'created_at'
+            'created_at',
+            'user_id',
+            'review_url'
         ],
         order: [['created_at', 'DESC']],
         include: [
@@ -39,9 +41,10 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'review_url',
             'title',
-            'created_at'
+            'created_at',
+            'user_id',
+            'review_url'
         ],
         include: [
             {
@@ -64,11 +67,12 @@ router.get('/:id', (req, res) => {
 });
 
 // creates a review and sends it to the database
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Review.create({
         title: req.body.title,
-        review_url: req.body.review_url,
-        text: req.body.text
+        text: req.body.text,
+        user_id: req.session.user_id,
+        review_url: shortid.generate()
     })
     .then(dbReviewData => res.json(dbReviewData))
     .catch(err => {

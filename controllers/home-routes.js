@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
             'id',
             'review_url',
             'title',
+            'text',
             'created_at'
         ],
         include: [
@@ -51,8 +52,19 @@ router.get('/review/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: [],
-        include: []
+        attributes: [
+            'id',
+            'review_url',
+            'title',
+            'text',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Game,
+                attributes: ['title']
+            }
+        ]
     })
     .then(dbReviewData => {
         if (!dbReviewData) {

@@ -19,12 +19,6 @@ router.get('/:id', (req, res) => {
             {
                 model: Review,
                 attributes: ['id', 'title', 'review_url', 'created_at']
-            },
-            {
-                model: Review,
-                attributes: ['title'],
-                through: Vote,
-                as: 'voted_posts'
             }
         ]
     })
@@ -44,16 +38,16 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     User.create({
         email: req.body.email,
-        username: req.body.user,
+        username: req.body.username,
         password: req.body.password
     })
     .then(dbUserData => {
         req.session.save(() => {
-            req.session.id = dbUserData.id;
+            req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
 
-            res.json(dbUserData)  
+            return res.json(dbUserData)  
         })
     })
     .catch(err => {
@@ -65,29 +59,32 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            username: req.body.user
+            username: req.body.username
         }
     }).then(dbUserData => {
         if (!dbUserData) {
             res.status(400).json({ message: 'No user with that username!'});
             return;
         }
-        res.json({ user: dbUserData});
+
 
         const validPassword = dbUserData.checkPassword(req.body.password);
 
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!'});
             return;
-        }
-
-        req.session.save(() => {
+        } else {
+            req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
 
-            // res.json({ user: dbUserData, message: 'You are now logged in.'});
-        });
+            res.json({ user: dbUserData });
+            
+        });            
+        }
+
+
     });
 });
 

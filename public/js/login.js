@@ -1,14 +1,14 @@
 async function login(event) {
     event.preventDefault();
 
-    const user = document.querySelector('#old-username').value.trim();
+    const username = document.querySelector('#old-username').value.trim();
     const password = document.querySelector('#old-password').value.trim();
 
-    if (user && password) {
+    if (username && password) {
         const response = await fetch('/api/users/login', {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify({
-                user,
+                username,
                 password
             }),
             headers: {'Content-Type': 'application/json'}
@@ -27,15 +27,15 @@ async function signUp(event) {
     event.preventDefault();
 
     const email = document.querySelector('#new-email').value.trim();
-    const user = document.querySelector('#new-username').value.trim();
+    const username = document.querySelector('#new-username').value.trim();
     const password = document.querySelector('#new-password').value.trim();
 
-    if (email && user && password) {
+    if (email && username && password) {
         const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
                 email,
-                user,
+                username,
                 password
             }),
             headers: {'Content-Type': 'application/json'}
