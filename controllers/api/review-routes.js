@@ -81,4 +81,23 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
+// finds the review that the user searches for
+router.post('/:id', (req, res) => {
+    Review.findOne({
+        where: {
+            title: req.body.game
+        }
+    }).then(dbReviewData => {
+        if (!dbReviewData) {
+            res.status(400).json({ message: "We don't have any reviews for that game yet!"});
+            return;
+        } else {
+            res.json(dbReviewData)
+        }
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
+
 module.exports = router;

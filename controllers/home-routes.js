@@ -82,6 +82,10 @@ router.get('/review/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     })
+});
+
+router.get('/search-results/', (req, res) => {
+    res.render('search-results')
 })
 
 module.exports = router;

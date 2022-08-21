@@ -3,14 +3,14 @@ async function searchGame(event) {
 
     const game = document.querySelector('#search').value;
 
-    const response = await fetch('/api/games', {
+    const response = await fetch('/api/reviews/:id', {
         method: 'POST',
         body: JSON.stringify({ game }),
         headers: {'Content-Type': 'application/json'}
     });
 
     if (response.ok) {
-        document.location.replace('search-results')
+        document.location.replace('/search-results/')
     } else {
         alert(response.statusText)
     }
