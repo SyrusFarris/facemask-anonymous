@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Review, Game } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// finds all users in the database
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] }
@@ -13,6 +14,7 @@ router.get('/', (req, res) => {
         });
 });
 
+// finds a particular user based on the id number
 router.get('/:id', (req, res) => {
     User.findOne({
         include: [
@@ -35,6 +37,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+//creates a user whenever the sign-up form is filled out and submitted
 router.post('/', (req, res) => {
     User.create({
         email: req.body.email,
@@ -56,6 +59,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// logs the user in, searches for the user based on the paramaters entered
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
@@ -69,11 +73,12 @@ router.post('/login', (req, res) => {
 
 
         const validPassword = dbUserData.checkPassword(req.body.password);
-
+        // makes sure the password matches
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!'});
             return;
         } else {
+            //begins user session
             req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
@@ -88,6 +93,7 @@ router.post('/login', (req, res) => {
     });
 });
 
+// ends the session
 router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
